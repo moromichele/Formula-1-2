@@ -1,18 +1,17 @@
 import './App.css'
-import { useStandingsByYearQuery } from './queries'
+import { useDriverStandingsByYearQuery } from './queries'
+
 
 function App() {
 
-  const {data, isPending} = useStandingsByYearQuery()
+  const year = 2007
+
+  const {data, isPending} = useDriverStandingsByYearQuery(year)
 
   if(isPending || !data) return <div>loading data</div>
 
   return (
-    <>
-      <div>{data.year} Championship</div>
-      <div>First place: {data[1]}</div>
-      <div>Second place: {data[2]}</div>
-    </>
+      <div> Data fetched, winner in {year} was {data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0].Driver.code}</div>
   )
 }
 
