@@ -15,22 +15,8 @@ createRoot(document.getElementById("root")!).render(
 			<Routes>
 				<Route index element={<WelcomePage />} />
 				<Route element={<StandingsHeader />}>
-					<Route
-						path=":type/:year"
-						element={
-				
-								<DriverStandings />
-				
-						}
-					/>
-					<Route
-						path=":type/:year"
-						element={
-						
-								<ConstructorStandings />
-							
-						}
-					/>
+					<Route path="drivers/:year" element={<DriverStandings />} />
+					<Route path="constructors/:year" element={<ConstructorStandings />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>

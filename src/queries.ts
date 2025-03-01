@@ -22,6 +22,7 @@ export function useDriverStandingsByYearQuery(year: number) {
 			const res = await axios.get<DriverStandingsDataT>(
 				API_BASE_PATH + year + "/driverstandings/"
 			)
+			console.log({ res })
 			return res.data
 		},
 	})
@@ -35,7 +36,7 @@ export function useConstructorStandingsByYearQuery(year: number) {
 			const res = await axios.get<ConstructorStandingsDataT>(
 				API_BASE_PATH + year + "/constructorstandings/"
 			)
-      return res.data
+			return res.data
 		},
 	})
 }
