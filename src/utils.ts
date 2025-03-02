@@ -1,28 +1,15 @@
-import { ConstructorStandingsDataT, DriverStandingsDataT } from "./types"
+import { ConstructorStandingsDataT, ConstructorStandingT, DriverStandingsDataT, DriverStandingT } from "./types"
 
-export function getDriverStandingByDriverStandingsData(
+export function getDriversByDriverStandingsData(
 	data: DriverStandingsDataT,
-	position: number
-) {
-	const driverStandings =
-		data.MRData.StandingsTable.StandingsLists[0].DriverStandings
-	if (position < 0 || position > driverStandings.length) return undefined
-	return data.MRData.StandingsTable.StandingsLists[0].DriverStandings[position]
+): Array<DriverStandingT> {
+	return data.MRData.StandingsTable.StandingsLists[0].DriverStandings
 }
 
-export function getConstructorByConstructorStandingsData(
+export function getConstructorsByConstructorStandingsData(
 	data: ConstructorStandingsDataT,
-	position: number
-) {
-	if (
-		position < 0 ||
-		position >
-			data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings.length
-	)
-		return undefined
-	return data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[
-		position
-	]
+): Array<ConstructorStandingT> {
+	return data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
 }
 
 export function isInvalidStandings(

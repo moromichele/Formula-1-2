@@ -3,17 +3,21 @@ export type DriverStandingsDataT = {
 		StandingsTable: {
 			season: string
 			StandingsLists: Array<{
-				DriverStandings: Array<{
-					position: string
-					positionText: string
-					points: string
-					wins: string
-					Driver: DriverT
-					Constructors: Array<ConstructorT>
-				}>
+				round: string,
+				season: string,
+				DriverStandings: Array<DriverStandingT>
 			}>
 		}
 	}
+}
+
+export type DriverStandingT = {
+	position: string
+	positionText: string
+	points: string
+	wins: string
+	Driver: DriverT
+	Constructors: Array<ConstructorT>
 }
 
 export type DriverT = {
@@ -38,14 +42,18 @@ export type ConstructorStandingsDataT = {
 		StandingsTable: {
 			season: string
 			StandingsLists: Array<{
-				ConstructorStandings: Array<{
-					position: string
-					positionText: string
-					points: string
-					wins: string
-					Constructor: ConstructorT
-				}>
+				ConstructorStandings: Array<ConstructorStandingT>
+				round: string,
+				season: string,
 			}>
 		}
 	}
+}
+
+export type ConstructorStandingT = {
+	position: string
+	positionText: string
+	points: string
+	wins: string
+	Constructor: ConstructorT
 }

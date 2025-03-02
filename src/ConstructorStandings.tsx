@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import "./App.css"
 import { useConstructorStandingsByYearQuery } from "./queries"
 import {
-	getConstructorByConstructorStandingsData,
+	getConstructorsByConstructorStandingsData,
 	isInvalidStandings,
 } from "./utils"
 import { useNavigate, useOutletContext } from "react-router"
@@ -23,7 +23,7 @@ export const ConstructorStandings = () => {
 
 	if (isLoadingConstructorStandings) return <div>loading data</div>
 
-	if (isInvalidStandings(constructorStandingsData))
+	if (!constructorStandingsData || isInvalidStandings(constructorStandingsData))
 		return (
 			<div>
 				No data for this year, this could mean that you're trying to access a
@@ -31,20 +31,12 @@ export const ConstructorStandings = () => {
 			</div>
 		)
 
+	const constructors = getConstructorsByConstructorStandingsData(constructorStandingsData)
+
 	return (
-		<>
-			{constructorStandingsData && (
-				<div>
-					{" "}
-					Data fetched, c winner in {year} was{" "}
-					{
-						getConstructorByConstructorStandingsData(
-							constructorStandingsData,
-							0
-						)?.Constructor.name
-					}
-				</div>
-			)}
-		</>
+		<div>
+			Data fetched, c standings in {year}:
+			{constructors.map((constructor)=><div>{constructor.Constructor.name}</div>)}
+		</div>
 	)
 }

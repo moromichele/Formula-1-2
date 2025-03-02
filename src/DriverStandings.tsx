@@ -2,7 +2,7 @@ import { useNavigate, useOutletContext } from "react-router"
 import "./App.css"
 import { useDriverStandingsByYearQuery } from "./queries"
 import {
-	getDriverStandingByDriverStandingsData,
+	getDriversByDriverStandingsData,
 	isInvalidStandings,
 } from "./utils"
 import { useEffect } from "react"
@@ -21,7 +21,7 @@ export const DriverStandings = () => {
 	console.log(year)
 	if (isLoadingDriverStandings) return <div>loading data</div>
 
-	if (isInvalidStandings(driverStandingsData))
+	if (!driverStandingsData || isInvalidStandings(driverStandingsData))
 		return (
 			<div>
 				No data for this year, this could mean that you're trying to access a
@@ -29,18 +29,12 @@ export const DriverStandings = () => {
 			</div>
 		)
 
+	const drivers = getDriversByDriverStandingsData(driverStandingsData)
+
 	return (
-		<>
-			{driverStandingsData && (
-				<div>
-					{" "}
-					Data fetched, d winner in {year} was{" "}
-					{
-						getDriverStandingByDriverStandingsData(driverStandingsData, 0)
-							?.Driver.driverId
-					}
-				</div>
-			)}
-		</>
+		<div>
+			Data fetched, d standings in {year}:
+			{drivers.map((driver)=><div>{driver.Driver.driverId}</div>)}
+		</div>
 	)
 }
