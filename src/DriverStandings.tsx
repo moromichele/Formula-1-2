@@ -1,11 +1,9 @@
 import { useNavigate, useOutletContext } from "react-router"
 import "./App.css"
 import { useDriverStandingsByYearQuery } from "./queries"
-import {
-	getDriversByDriverStandingsData,
-	isInvalidStandings,
-} from "./utils"
+import { getDriversByDriverStandingsData, isInvalidStandings } from "./utils"
 import { useEffect } from "react"
+import css from "./styles.module.css"
 
 export const DriverStandings = () => {
 	const { year } = useOutletContext<{ year: string }>()
@@ -29,12 +27,26 @@ export const DriverStandings = () => {
 			</div>
 		)
 
-	const drivers = getDriversByDriverStandingsData(driverStandingsData)
+	const driverStandings = getDriversByDriverStandingsData(driverStandingsData)
 
 	return (
 		<div>
-			Data fetched, d standings in {year}:
-			{drivers.map((driver)=><div>{driver.Driver.driverId}</div>)}
+			<b className={css.gridHeader}>F1 DRIVER STANDINGS {year}</b>
+			<div className={css.standingsGrid}>
+				{driverStandings.map((ds) => (
+					<div className={css.standingsRow}>
+						<div className={css.position}>{ds.position}</div>
+							<div className={css.driverNames}>
+								<p>{ds.Driver.givenName}</p>
+								<p>
+									<b>{ds.Driver.familyName.toLocaleUpperCase()}</b>
+								</p>
+							</div>
+						<div className={css.nationality}>{ds.Driver.nationality}</div>
+						<div className={css.points}>{ds.points}</div>
+					</div>
+				))}
+			</div>
 		</div>
 	)
 }

@@ -1,17 +1,67 @@
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
 }
 
-.buttonsContainer{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.buttonsContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 12px;
+
+	.testButton {
+		padding: 12px;
+		border: 1px solid red;
+		border-radius: 12px;
+	}
+}
+
+.standingsNavigation {
+	display: flex;
     gap: 12px;
 
-    .testButton{
-        padding: 12px;
-        border: 1px solid red;
-        border-radius: 12px;
-    }
+	.standingsTypeLink {
+        color: black;
+		padding: 6px 12px;
+		text-decoration: none;
+		border: 1px solid black;
+		border-radius: 6px;
+
+        &.activeNav{
+            background-color: rgb(46, 37, 37);
+            color: #ffffff;
+        }
+	}
+}
+
+.standingsGrid {
+	display: grid;
+	row-gap: 12px;
+}
+
+.standingsGrid > *:nth-child(2n) {
+	background-color: rgb(247, 242, 235);
+}
+
+.gridHeader {
+	font-size: 40px;
+}
+
+.standingsRow {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 20px;
+
+	border-bottom-right-radius: 16px;
+	border-top-left-radius: 16px;
+	border: 2px solid black;
+
+	min-width: 500px;
+	padding: 12px;
+
+	.driverNames {
+		display: flex;
+		gap: 12px;
+	}
 }

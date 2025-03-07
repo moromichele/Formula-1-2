@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ConstructorStandings } from "./ConstructorStandings.tsx"
 import { WelcomePage } from "./WelcomePage.tsx"
-import { StandingsHeader } from "./StandingsHeader.tsx"
+import { StandingsNavigation } from "./StandingsNavigation.tsx"
 
 const queryClient = new QueryClient()
 
@@ -14,7 +14,7 @@ createRoot(document.getElementById("root")!).render(
 		<BrowserRouter>
 			<Routes>
 				<Route index element={<WelcomePage />} />
-				<Route element={<StandingsHeader />}>
+				<Route element={<StandingsNavigation />}>
 					<Route path="drivers/:year" element={<DriverStandings />} />
 					<Route path="constructors/:year" element={<ConstructorStandings />} />
 				</Route>

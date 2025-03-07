@@ -6,6 +6,7 @@ import {
 	isInvalidStandings,
 } from "./utils"
 import { useNavigate, useOutletContext } from "react-router"
+import css from "./styles.module.css"
 
 export const ConstructorStandings = () => {
 	const { year } = useOutletContext<{ year: string }>()
@@ -31,12 +32,21 @@ export const ConstructorStandings = () => {
 			</div>
 		)
 
-	const constructors = getConstructorsByConstructorStandingsData(constructorStandingsData)
+	const constructorStandings = getConstructorsByConstructorStandingsData(
+		constructorStandingsData
+	)
 
 	return (
 		<div>
-			Data fetched, c standings in {year}:
-			{constructors.map((constructor)=><div>{constructor.Constructor.name}</div>)}
+			<b className={css.gridHeader}>F1 CONSTRUCTOR STANDINGS {year}</b>
+			<div className={css.standingsGrid}>
+				{constructorStandings.map((cs) => (
+					<div className={css.standingsRow}>
+						<div className={css.position}>{cs.position}</div>
+						{cs.Constructor.name}
+					</div>
+				))}
+			</div>
 		</div>
 	)
 }

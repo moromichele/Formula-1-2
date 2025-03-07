@@ -3,8 +3,9 @@ import css from "./styles.module.css"
 export const WelcomePage = () => {
 	return (
 		<div className={css.wrapper}>
-			Welcome to the app, this app uses this API to show drivers and
-			constructors standings by specific year.
+			<p>Welcome to F1 Standings, this website uses data from <Link to='https://github.com/jolpica/jolpica-f1' target="_blank" rel="noopener noreferrer">Jolpica F1 API</Link> to show drivers and
+			constructors standings by specific year.</p>
+			<p>To start, select what type of standings you're interested in:</p>
 			<div className={css.buttonsContainer}>
 				<Link to="/drivers/1997" className={css.testButton}>
 					drivers
