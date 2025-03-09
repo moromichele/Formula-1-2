@@ -11,7 +11,6 @@ function validateYear(year: number): number {
 export const StandingsNavigation = () => {
 	const urlYear = useParams().year as string
 	const pathname = useLocation().pathname
-	console.log(pathname)
 	const [year, setYear] = useState(validateYear(Number(urlYear)))
 	const currYear = new Date().getFullYear()
 	const years = Array.from(
@@ -26,7 +25,7 @@ export const StandingsNavigation = () => {
 	return (
 		<>
 			<div className={css.standingsNavigation}>
-				<select onChange={handleSelectYear} value={year}>
+				<select onChange={handleSelectYear} value={year} className={css.yearSelect}>
 					{years.map((y) => (
 						<option key={y} value={y}>
 							{y}

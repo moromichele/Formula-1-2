@@ -17,7 +17,13 @@ export const DriverStandings = () => {
 	}, [year, navi])
 
 	console.log(year)
-	if (isLoadingDriverStandings) return <div>loading data</div>
+	if (isLoadingDriverStandings)
+		return (
+			<div>
+				<b className={css.gridHeader}>F1 DRIVER STANDINGS {year}</b>
+				<p style={{ textAlign: "center" }}>loading data...</p>
+			</div>
+		)
 
 	if (!driverStandingsData || isInvalidStandings(driverStandingsData))
 		return (
@@ -33,16 +39,27 @@ export const DriverStandings = () => {
 		<div>
 			<b className={css.gridHeader}>F1 DRIVER STANDINGS {year}</b>
 			<div className={css.standingsGrid}>
+				<div className={css.standingsRow}>
+					<div className={css.position}>Pos</div>
+					<div className={css.driverNames}>
+						<p>given name</p>
+						<p>
+							<strong>last name</strong>
+						</p>
+					</div>
+					<div className={css.nationality}># wins</div>
+					<div className={css.points}>Pts</div>
+				</div>
 				{driverStandings.map((ds) => (
-					<div className={css.standingsRow}>
+					<div className={css.standingsRow} key={ds.Driver.driverId}>
 						<div className={css.position}>{ds.position}</div>
-							<div className={css.driverNames}>
-								<p>{ds.Driver.givenName}</p>
-								<p>
-									<b>{ds.Driver.familyName.toLocaleUpperCase()}</b>
-								</p>
-							</div>
-						<div className={css.nationality}>{ds.Driver.nationality}</div>
+						<div className={css.driverNames}>
+							<p>{ds.Driver.givenName}</p>
+							<p>
+								<b>{ds.Driver.familyName.toLocaleUpperCase()}</b>
+							</p>
+						</div>
+						<div className={css.nationality}>{ds.wins}</div>
 						<div className={css.points}>{ds.points}</div>
 					</div>
 				))}

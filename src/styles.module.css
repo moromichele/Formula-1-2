@@ -1,42 +1,60 @@
-.wrapper {
+.welcomeWrapper {
+	text-align: center;
 	display: flex;
 	flex-direction: column;
 	gap: 24px;
 }
 
 .buttonsContainer {
-	display: grid;
+	display: flex;
+	margin: auto;
 	grid-template-columns: 1fr 1fr;
 	gap: 12px;
 
-	.testButton {
+	.navButton {
+		text-decoration: none;
+		color: black;
 		padding: 12px;
-		border: 1px solid red;
+		width: 200px;
+		border: 1px solid black;
 		border-radius: 12px;
+
+		&:hover {
+			-webkit-box-shadow: var(--button-shadow);
+			-moz-box-shadow: var(--button-shadow);
+			box-shadow: var(--button-shadow);
+		}
 	}
 }
 
 .standingsNavigation {
 	display: flex;
-    gap: 12px;
+	gap: 12px;
 
 	.standingsTypeLink {
-        color: black;
+		color: black;
 		padding: 6px 12px;
 		text-decoration: none;
 		border: 1px solid black;
 		border-radius: 6px;
 
-        &.activeNav{
-            background-color: rgb(46, 37, 37);
-            color: #ffffff;
-        }
+		&.activeNav {
+			background-color: rgb(46, 37, 37);
+			color: #ffffff;
+		}
+
+		&:hover:not(.activeNav) {
+			-webkit-box-shadow: var(--button-shadow);
+			-moz-box-shadow: var(--button-shadow);
+			box-shadow: var(--button-shadow);
+		}
 	}
 }
 
 .standingsGrid {
-	display: grid;
-	row-gap: 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
 }
 
 .standingsGrid > *:nth-child(2n) {
@@ -48,9 +66,10 @@
 }
 
 .standingsRow {
-	display: flex;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: 60px 1fr 70px 70px;
 	align-items: center;
+	align-content: center;
 	height: 20px;
 
 	border-bottom-right-radius: 16px;
@@ -63,5 +82,22 @@
 	.driverNames {
 		display: flex;
 		gap: 12px;
+	}
+
+	:last-child {
+		text-align: right;
+	}
+}
+
+.yearSelect {
+	background-color: #ffffff;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 2px 10px;
+
+	&:hover {
+		-webkit-box-shadow: var(--button-shadow);
+		-moz-box-shadow: var(--button-shadow);
+		box-shadow: var(--button-shadow);
 	}
 }
