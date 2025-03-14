@@ -1,6 +1,10 @@
 # F1 standings V2
 
-Small project to test how I would approach the same problem some years later and to test Vite as a React project base.
+Small project to test how I would approach the same problem from https://github.com/moromichele/F1-Standings some years later and to test Vite as a React project base.
+
+Shows F1 driver or constructor championship standings by year.
+
+Created with Vite React + TypeScript template.
 
 ## Differences with V1
 

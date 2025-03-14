@@ -6,10 +6,13 @@
 :root {
   font-family: 'Formula1', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   --button-shadow: 0 2px 1px 1px rgba(146, 146, 146, 0.75);
+  --border-radius-s: 9px;
+  --border-radius-m: 19px;
+  --spacing-xs: 6px;
+  --spacing-s: 12px;
 }
 
 body {
-  display: flex;
   min-width: 320px;
   min-height: 100vh;
 }

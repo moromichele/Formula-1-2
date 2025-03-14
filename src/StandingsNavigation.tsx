@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link, Outlet, useLocation, useParams } from "react-router"
 import css from "./styles.module.css"
 import classnames from "classnames"
+import homeIcon from './icons/minified-home-icon.svg'
 
 function validateYear(year: number): number {
 	if (year < 1950 || year > 2040 || isNaN(year)) return 2000
@@ -47,6 +48,11 @@ export const StandingsNavigation = () => {
 					})}
 				>
 					constructors
+				</Link>
+				<Link
+					to={"/"}
+				>
+					<img src={homeIcon} className={css.icon} width={30}/>
 				</Link>
 			</div>
 			<Outlet context={{ year }} />

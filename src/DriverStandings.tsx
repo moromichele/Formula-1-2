@@ -37,16 +37,11 @@ export const DriverStandings = () => {
 
 	return (
 		<div>
-			<b className={css.gridHeader}>F1 DRIVER STANDINGS {year}</b>
+			<div className={css.gridHeader}>F1 DRIVER STANDINGS {year}</div>
 			<div className={css.standingsGrid}>
 				<div className={css.standingsRow}>
 					<div className={css.position}>Pos</div>
-					<div className={css.driverNames}>
-						<p>given name</p>
-						<p>
-							<strong>last name</strong>
-						</p>
-					</div>
+					<div>driver name</div>
 					<div className={css.nationality}># wins</div>
 					<div className={css.points}>Pts</div>
 				</div>
