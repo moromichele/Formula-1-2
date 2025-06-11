@@ -1,9 +1,8 @@
 import { useNavigate, useOutletContext } from "react-router"
-import "./App.css"
-import { useDriverStandingsByYearQuery } from "./queries"
-import { getDriversByDriverStandingsData, isInvalidStandings } from "./utils"
 import { useEffect } from "react"
-import css from "./styles.module.css"
+import css from "../styles.module.css"
+import { getDriversByDriverStandingsData, isInvalidStandings } from "../utils"
+import { useDriverStandingsByYearQuery } from "../queries"
 
 export const DriverStandings = () => {
 	const { year } = useOutletContext<{ year: string }>()

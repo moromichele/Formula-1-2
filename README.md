@@ -4,7 +4,7 @@ Small project to test how I would approach the same problem from https://github.
 
 Shows F1 driver or constructor championship standings by year.
 
-Created with Vite React + TypeScript template.
+Created with Vite's React + TypeScript template.
 
 ## Differences with V1
 
@@ -14,8 +14,15 @@ The API used in V1 is getting deprecated so this project is using a "direct" rep
 
 ### Data fetching: React Query
 
-I'm using React Query for easy data fetching from api with caching functionalities.
+I'm using TanStack's React Query for easy data fetching from api with caching functionalities.
 
 ### Simpler design
 
-No overy complicated React Redux for state management, simple CSS instead of styled components.
+Compared to V1, I decided to not use Redux as it is a bit overkill for this usecase,
+Also I'm using CSS modules instead of styled components as personal preference.
+
+### TODO
+- Add dark theme
+- Add footer
+- Restyle navigation
+- Add extra info on row item click

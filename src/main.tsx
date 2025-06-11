@@ -1,11 +1,11 @@
 import { createRoot } from "react-dom/client"
 import "./index.css"
-import { DriverStandings } from "./DriverStandings.tsx"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { ConstructorStandings } from "./ConstructorStandings.tsx"
-import { WelcomePage } from "./WelcomePage.tsx"
-import { StandingsNavigation } from "./StandingsNavigation.tsx"
+import { WelcomePage } from "./components/WelcomePage.tsx"
+import { StandingsNavigation } from "./components/StandingsNavigation.tsx"
+import { DriverStandings } from "./components/DriverStandings.tsx"
+import { ConstructorStandings } from "./components/ConstructorStandings.tsx"
 
 const queryClient = new QueryClient()
 

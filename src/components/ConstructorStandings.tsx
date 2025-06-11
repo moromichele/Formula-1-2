@@ -1,12 +1,8 @@
 import { useEffect } from "react"
-import "./App.css"
-import { useConstructorStandingsByYearQuery } from "./queries"
-import {
-	getConstructorsByConstructorStandingsData,
-	isInvalidStandings,
-} from "./utils"
 import { useNavigate, useOutletContext } from "react-router"
-import css from "./styles.module.css"
+import css from "../styles.module.css"
+import { useConstructorStandingsByYearQuery } from "../queries"
+import { getConstructorsByConstructorStandingsData, isInvalidStandings } from "../utils"
 
 export const ConstructorStandings = () => {
 	const { year } = useOutletContext<{ year: string }>()

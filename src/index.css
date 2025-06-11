@@ -5,14 +5,22 @@
 
 :root {
   font-family: 'Formula1', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --button-shadow: 0 2px 1px 1px rgba(146, 146, 146, 0.75);
+  --button-shadow: 2px 2px 3px 0 rgba(112, 107, 122, 0.75);
   --border-radius-s: 9px;
   --border-radius-m: 19px;
   --spacing-xs: 6px;
   --spacing-s: 12px;
 }
 
+html, 
 body {
-  min-width: 320px;
-  min-height: 100vh;
+  height: 100%;
+}
+
+body {
+  margin: 0px;
+}
+
+#root {
+  height: 100%;
 }
