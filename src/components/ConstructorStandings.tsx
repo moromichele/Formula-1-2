@@ -2,7 +2,10 @@ import { useEffect } from "react"
 import { useNavigate, useOutletContext } from "react-router"
 import css from "../styles.module.css"
 import { useConstructorStandingsByYearQuery } from "../queries"
-import { getConstructorsByConstructorStandingsData, isInvalidStandings } from "../utils"
+import {
+	getConstructorsByConstructorStandingsData,
+	isInvalidStandings,
+} from "../utils"
 
 export const ConstructorStandings = () => {
 	const { year } = useOutletContext<{ year: string }>()
@@ -18,7 +21,13 @@ export const ConstructorStandings = () => {
 		navi("/constructors/" + year)
 	}, [year, navi])
 
-	if (isLoadingConstructorStandings) return <div><b className={css.gridHeader}>F1 CONSTRUCTOR STANDINGS {year}</b><p style={{ textAlign: 'center'}}>loading data...</p></div>
+	if (isLoadingConstructorStandings)
+		return (
+			<div>
+				<b className={css.gridHeader}>F1 CONSTRUCTOR STANDINGS {year}</b>
+				<p style={{ textAlign: "center" }}>loading data...</p>
+			</div>
+		)
 
 	if (!constructorStandingsData || isInvalidStandings(constructorStandingsData))
 		return (
@@ -34,22 +43,23 @@ export const ConstructorStandings = () => {
 
 	return (
 		<div>
-			<b className={css.gridHeader}>F1 CONSTRUCTOR STANDINGS {year}</b>
+			<div className={css.gridHeader}>F1 CONSTRUCTOR STANDINGS {year}</div>
 			<div className={css.standingsGrid}>
-				<div className={css.standingsRow}>
-					<div className={css.position}>Pos</div>
-					<div className={css.driverNames}>
-						name
-					</div>
-					<div className={css.nationality}># wins</div>
-					<div className={css.points}>Pts</div>
+				<div className={css.standingsHeader}>
+					<div>Pos</div>
+					<div>name</div>
+					<div># wins</div>
+					<div>Pts</div>
 				</div>
-				{constructorStandings.map((cs) => (
-					<div className={css.standingsRow} key={cs.Constructor.constructorId}>
-						<div className={css.position}>{cs.position}</div>
-						<div>{cs.Constructor.name}</div>
-						<div>{cs.wins}</div>
-						<div>{cs.points}</div>
+				{constructorStandings.map((standing) => (
+					<div
+						className={css.standingsRow}
+						key={standing.Constructor.constructorId}
+					>
+						<div>{standing.position}</div>
+						<div>{standing.Constructor.name}</div>
+						<div>{standing.wins}</div>
+						<div>{standing.points}</div>
 					</div>
 				))}
 			</div>

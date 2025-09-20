@@ -15,7 +15,6 @@ export const DriverStandings = () => {
 		navi("/drivers/" + year)
 	}, [year, navi])
 
-	console.log(year)
 	if (isLoadingDriverStandings)
 		return (
 			<div>
@@ -38,23 +37,23 @@ export const DriverStandings = () => {
 		<div>
 			<div className={css.gridHeader}>F1 DRIVER STANDINGS {year}</div>
 			<div className={css.standingsGrid}>
-				<div className={css.standingsRow}>
-					<div className={css.position}>Pos</div>
+				<div className={css.standingsHeader}>
+					<div>Pos</div>
 					<div>driver name</div>
-					<div className={css.nationality}># wins</div>
-					<div className={css.points}>Pts</div>
+					<div># wins</div>
+					<div>Pts</div>
 				</div>
 				{driverStandings.map((ds) => (
 					<div className={css.standingsRow} key={ds.Driver.driverId}>
-						<div className={css.position}>{ds.position}</div>
+						<div>{ds.position}</div>
 						<div className={css.driverNames}>
-							<p>{ds.Driver.givenName}</p>
-							<p>
+							<p className={css.ellipsis} >{ds.Driver.givenName}</p>
+							<p className={css.ellipsis} >
 								<b>{ds.Driver.familyName.toLocaleUpperCase()}</b>
 							</p>
 						</div>
-						<div className={css.nationality}>{ds.wins}</div>
-						<div className={css.points}>{ds.points}</div>
+						<div>{ds.wins}</div>
+						<div>{ds.points}</div>
 					</div>
 				))}
 			</div>

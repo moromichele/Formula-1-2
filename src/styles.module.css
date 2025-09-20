@@ -17,6 +17,10 @@
 			font-size: 40px;
 		}
 	}
+
+	@media only screen and (max-width: 450px) {
+		padding: var(--spacing-s);
+	}
 }
 
 .buttonsContainer {
@@ -26,7 +30,7 @@
 	.navButton {
 		text-decoration: none;
 		background-color: #e10600;
-		color: white;
+		color: var(--inverse-text-color);
 		padding: var(--spacing-s);
 		width: calc(min(200px, 35vw));
 		border-radius: var(--border-radius-s);
@@ -35,6 +39,14 @@
 			-webkit-box-shadow: var(--button-shadow);
 			-moz-box-shadow: var(--button-shadow);
 			box-shadow: var(--button-shadow);
+		}
+	}
+
+	@media only screen and (max-width: 450px) {
+		flex-direction: column;
+
+		.navButton {
+			width: auto;
 		}
 	}
 }
@@ -49,22 +61,34 @@
 		gap: var(--spacing-s);
 
 		.standingsTypeLink {
-			background-color: rgb(255, 255, 255);
-			color: black;
+			background-color: var(--inverse-text-color);
+			color: var(--normal-text-color);
 			padding: var(--spacing-xs) var(--spacing-s);
 			text-decoration: none;
-			border-bottom: 1px solid black;
+			border-bottom: 1px solid var(--normal-text-color);
 
 			&.activeNav {
-				color: white;
+				color: var(--inverse-text-color);
 				background-color: red;
 			}
 
 			&:hover {
 				position: relative;
 				top: -1px;
-				border-bottom: 2px solid black;
+				border-bottom: 2px solid var(--normal-text-color);
 			}
+		}
+
+		@media only screen and (max-width: 450px) {
+			gap: 0;
+
+			.standingsTypeLink {
+				padding: var(--spacing-xs);
+			}
+		}
+
+		@media only screen and (max-width: 900px) {
+				justify-content: center;
 		}
 	}
 }
@@ -76,7 +100,7 @@
 }
 
 .standingsGrid > *:nth-child(2n) {
-	background-color: rgb(220, 220, 227);
+	background-color: light-dark(rgb(220, 220, 227), rgb(61, 60, 65));
 }
 
 .gridHeader {
@@ -87,13 +111,24 @@
 	}
 }
 
-.standingsRow {
+.standingsHeader {
 	display: grid;
-	grid-template-columns: 60px 1fr 70px 70px;
+	grid-template-columns: 60px minmax(0, 1fr) 100px 70px;
+	padding: var(--spacing-s);
+
+	:last-child {
+		text-align: right;
+	}
 
 	@media only screen and (max-width: 450px) {
-		grid-template-columns: 40px 230px 60px 50px;
+		grid-template-columns: 40px minmax(0, 1fr) 70px 50px;
+		padding: var(--spacing-xs);
 	}
+}
+
+.standingsRow {
+	display: grid;
+	grid-template-columns: 60px minmax(0, 1fr) 70px 70px;
 
 	align-items: center;
 	align-content: center;
@@ -112,31 +147,49 @@
 	:last-child {
 		text-align: right;
 	}
+
+	@media only screen and (max-width: 450px) {
+		grid-template-columns: 40px minmax(0, 1fr) 20px 45px;
+		padding: var(--spacing-xs);
+
+		.driverNames {
+			gap: var(--spacing-xs);
+		}
+	}
 }
 
 .yearSelect {
-	background-color: #ffffff;
-	border: 0px solid black;
-	border-bottom: 1px solid black;
+	background-color: var(--inverse-text-color);
+	border: 0px solid var(--normal-text-color);
+	border-bottom: 1px solid var(--normal-text-color);
 	padding: 0px var(--spacing-s);
 
 	&:hover {
-		border-bottom: 2px solid black;
+		border-bottom: 2px solid var(--normal-text-color);
 		position: relative;
 		top: -1px;
 	}
 }
 
 .iconContainer {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid var(--normal-text-color);
+
 	.icon {
 		height: 33px;
+		fill: var(--normal-text-color);
+		stroke: var(--normal-text-color);
 	}
-	
+
 	&:hover {
 		.icon {
 			height: 32px;
 		}
-		border-bottom: 2px solid black;
+		border-bottom: 2px solid var(--normal-text-color);
 	}
+}
+
+.ellipsis {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }

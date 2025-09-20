@@ -5,7 +5,7 @@ export const WelcomePage = () => {
 	return (
 		<div className={css.welcomeWrapper}>
 			<div className={css.welcomeContent}>
-				<div className={css.title}>F1 Standings - V2</div>
+				<div className={css.title}>F1 Standings V2</div>
 				<div>
 					Welcome to F1 Standings, this website uses data from{" "}
 					<Link

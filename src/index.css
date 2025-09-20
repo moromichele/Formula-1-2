@@ -10,6 +10,10 @@
   --border-radius-m: 19px;
   --spacing-xs: 6px;
   --spacing-s: 12px;
+
+  color-scheme: light dark;
+  --normal-text-color: light-dark(black,white);
+  --inverse-text-color: light-dark(white,black);
 }
 
 html, 
