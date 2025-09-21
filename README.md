@@ -22,7 +22,6 @@ Compared to V1, I decided to not use Redux as it is a bit overkill for this usec
 Also I'm using CSS modules instead of styled components as personal preference.
 
 ### TODO
-- Add dark theme
+- Add dark theme toggler
 - Add footer
-- Restyle navigation
 - Add extra info on row item click
