@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting…</title>
+    <script type="text/javascript">
+      // GitHub Pages SPA redirect script
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // Store the current path so index.html can restore it
+      sessionStorage.redirect = location.href;
+      // Redirect to index.html so your SPA router can handle it
+      window.location.replace("/Formula-1-2/");
+    </script>
+  </body>
+</html>
