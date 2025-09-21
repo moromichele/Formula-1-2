@@ -11,7 +11,7 @@ const queryClient = new QueryClient()
 
 createRoot(document.getElementById("root")!).render(
 	<QueryClientProvider client={queryClient}>
-		<BrowserRouter>
+		<BrowserRouter basename="/Formula-1-2">
 			<Routes>
 				<Route index element={<WelcomePage />} />
 				<Route element={<StandingsNavigation />}>
