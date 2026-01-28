@@ -6,6 +6,7 @@ import {
 	getConstructorsByConstructorStandingsData,
 	isInvalidStandings,
 } from "../utils"
+import { InvalidYear } from "./InvalidYear"
 
 export const ConstructorStandings = () => {
 	const { year } = useOutletContext<{ year: string }>()
@@ -30,15 +31,10 @@ export const ConstructorStandings = () => {
 		)
 
 	if (!constructorStandingsData || isInvalidStandings(constructorStandingsData))
-		return (
-			<div>
-				No data for this year, this could mean that you're trying to access a
-				season that has not started yet or was not held.
-			</div>
-		)
+		return <InvalidYear />
 
 	const constructorStandings = getConstructorsByConstructorStandingsData(
-		constructorStandingsData
+		constructorStandingsData,
 	)
 
 	return (
